@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7 Meses de Amor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7 meses com você</title>
   <style>
     body {
       margin: 0;
@@ -11,7 +11,12 @@
       font-family: "Segoe UI", sans-serif;
       background: linear-gradient(135deg, #fbd3e9, #bb377d);
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       text-align: center;
+      padding: 20px;
     }
 
     .card {
@@ -20,9 +25,6 @@
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       max-width: 600px;
-      margin: 100px auto;
-      position: relative;
-      z-index: 1;
     }
 
     img {
@@ -51,69 +53,19 @@
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.2); }
     }
-
-    .hearts {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hearts span {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.5);
-      animation: float 10s linear infinite;
-      font-size: 1.5rem;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="hearts" id="hearts"></div>
-
   <div class="card">
     <img src="nos.jpg" alt="Nós dois" />
     <h1>Feliz 7 meses, amor! 💕</h1>
     <div class="heart">❤️</div>
     <p>
       Cada dia ao seu lado é um presente que eu agradeço demais. <br/>
-      Já são <span id="days-counter"></span> juntos, e quero todos os próximos com você. <br/>
-      Te amo com todo meu coração!
+      Já são 7 meses de muitos sorrisos, carinho, parceria e amor.<br/>
+      Que venham muitos outros meses, anos e uma vida inteira com você!<br/>
+      Te amo muito! 💖
     </p>
   </div>
-
-  <script>
-    const startDate = new Date("2024-09-29");
-    const today = new Date();
-    const diffTime = Math.abs(today - startDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById("days-counter").textContent = `${diffDays} dias`;
-
-    const heartsContainer = document.getElementById("hearts");
-    for (let i = 0; i < 50; i++) {
-      const heart = document.createElement("span");
-      heart.textContent = "❤️";
-      heart.style.left = `${Math.random() * 100}%`;
-      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
-      heart.style.fontSize = `${12 + Math.random() * 20}px`;
-      heartsContainer.appendChild(heart);
-    }
-  </script>
 </body>
 </html>
