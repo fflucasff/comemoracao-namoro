@@ -7,7 +7,203 @@
   <style>
     body {
       margin: 0;
+      padding: 0;<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7 meses com você</title>
+  <style>
+    body {
+      margin: 0;
       padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fbd3e9, #bb377d);
+      color: white;
+      text-align: center;
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 600px;
+      margin: 100px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .heart {
+      font-size: 2rem;
+      margin: 20px 0;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .button {
+      background-color: white;
+      color: #bb377d;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ffe4f0;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: #bb377d;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 10;
+      max-width: 400px;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      z-index: 9;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    #days-counter {
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hearts span {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.5);
+      animation: float 10s linear infinite;
+      font-size: 1.5rem;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="card">
+    <img src="nos.jpg" alt="Nós dois" />
+    <h1>Feliz 7 meses, amor! 💕</h1>
+    <div class="heart">❤️</div>
+    <p>
+      Cada dia ao seu lado é um presente que eu agradeço demais. <br/>
+      Já são <span id="days-counter"></span> juntos, e quero todos os próximos com você. <br/>
+      Te amo com todo meu coração! 💖
+    </p>
+    <button class="button" onclick="showPopup()">Clique para uma surpresa</button>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+  <div class="popup" id="popup">
+    <h3>Uma surpresa para você! 🎉</h3>
+    <p>
+      Eu te amo não só hoje, mas todos os dias. <br />
+      Cada momento ao seu lado é único. Obrigado por ser minha pessoa favorita! 😘
+    </p>
+    <button class="button" onclick="hidePopup()">Fechar</button>
+  </div>
+
+  <script>
+    // Contador de dias desde 29 de setembro de 2024
+    const startDate = new Date("2024-09-29");
+    const today = new Date();
+    const diffTime = Math.abs(today - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById("days-counter").textContent = `${diffDays} dias`;
+
+    function showPopup() {
+      document.getElementById("popup").classList.add("show");
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function hidePopup() {
+      document.getElementById("popup").classList.remove("show");
+      document.getElementById("overlay").classList.remove("show");
+    }
+
+    // Animação de corações
+    const heartsContainer = document.getElementById("hearts");
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement("span");
+      heart.textContent = "❤️";
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+      heart.style.fontSize = `${12 + Math.random() * 20}px`;
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
+
       font-family: "Segoe UI", sans-serif;
       background: linear-gradient(135deg, #fbd3e9, #bb377d);
       color: white;
